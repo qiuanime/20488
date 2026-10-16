@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b12">
+  <meta name="description" content="AniDō — jelajahi katalog anime Jepang dan donghua China.">
+  <title>AniDō — Anime & Donghua</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="AniDō beranda"><span class="brand-mark">A</span><span>Ani<span class="brand-accent">Dō</span></span></a>
+    <nav class="nav-links" aria-label="Navigasi">
+      <button class="nav-btn active" data-view="home">Beranda</button>
+      <button class="nav-btn" data-view="anime">Anime</button>
+      <button class="nav-btn" data-view="donghua">Donghua</button>
+      <button class="nav-btn" data-view="favorites">Favorit <span id="favorite-count" class="count">0</span></button>
+    </nav>
+    <button id="install-button" class="install-btn" hidden>Pasang aplikasi</button>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <p class="eyebrow"><span class="live-dot"></span> ANIME & DONGHUA DISCOVERY</p>
+        <h1>Cerita hebat.<br><span class="gradient-text">Dunia tanpa batas.</span></h1>
+        <p class="hero-copy">Temukan anime Jepang dan donghua China favoritmu dalam satu tempat.</p>
+        <div class="hero-actions">
+          <button class="primary-btn" id="explore-button">Jelajahi katalog <span aria-hidden="true">→</span></button>
+          <span class="hero-note">Katalog metadata · bukan penyedia video bajakan</span>
+        </div>
+      </div>
+      <div class="hero-orb orb-one"></div><div class="hero-orb orb-two"></div>
+      <div class="hero-symbol">ア</div>
+    </section>
+
+    <section class="toolbar" id="catalog">
+      <div>
+        <p class="eyebrow">PILIHAN UNTUKMU</p>
+        <h2 id="section-title">Jelajahi katalog</h2>
+      </div>
+      <div class="filters">
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="search-input" type="search" placeholder="Cari judul anime..." autocomplete="off"></label>
+        <select id="genre-filter" aria-label="Filter genre">
+          <option value="">Semua genre</option>
+        </select>
+        <select id="sort-filter" aria-label="Urutkan katalog">
+          <option value="popular">Terpopuler</option>
+          <option value="newest">Terbaru</option>
+          <option value="title">Judul A–Z</option>
+        </select>
+      </div>
+    </section>
+
+    <div id="status-message" class="status-message">Memuat katalog anime…</div>
+    <section id="anime-grid" class="anime-grid" aria-live="polite"></section>
+    <div class="load-row"><button id="load-more" class="secondary-btn" hidden>Muat lebih banyak</button></div>
+
+    <section class="legal-note">
+      <span class="legal-icon">ⓘ</span>
+      <p><strong>Tentang katalog:</strong> Informasi judul dan poster diambil dari AniList. Ketersediaan streaming tergantung pemegang lisensi di wilayahmu. Tombol “Tonton” pada versi awal memakai video demonstrasi, bukan episode anime sungguhan.</p>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">A</span><span>Ani<span class="brand-accent">Dō</span></span></a><span>Temukan cerita berikutnya.</span><span>Metadata: AniList API</span></footer>
+
+  <dialog id="detail-dialog" class="detail-dialog">
+    <button class="dialog-close" id="close-dialog" aria-label="Tutup">×</button>
+    <div id="detail-content"></div>
+  </dialog>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
